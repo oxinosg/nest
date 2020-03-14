@@ -1,0 +1,9 @@
+* TODO Execution Order:
+  - Controller
+  - Service
+  - Command:create-user
+  - Repository:creates user
+  - Event:user-created
+  - Saga:user
+  - Command:welcome
+* TODO [user.model.ts] verify email [[file:/home/ggz/Dev/real-estate-marketplace/src/models/user.model.ts::// TODO verify email][src]] [2020-03-13 Fr]
