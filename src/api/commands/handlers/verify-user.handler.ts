@@ -1,6 +1,6 @@
 import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs'
 import { VerifyUserCommand } from '../impl/verify-user.command'
-import { UserRepository } from '../../repository/user.repository'
+import { UserRepository } from '../../../infrastucture/repository/user.repository'
 import { Logger } from '@nestjs/common'
 
 @CommandHandler(VerifyUserCommand)

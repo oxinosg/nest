@@ -2,10 +2,10 @@ import { Args, Resolver, Query, Mutation } from '@nestjs/graphql'
 import { plainToClass } from 'class-transformer'
 import { CommandBus, QueryBus } from '@nestjs/cqrs'
 
-import { User } from '../graphql'
 import { GetUsersQuery } from '../queries/impl'
 import { CreateUserCommand } from '../commands/impl'
 import { CreateUserInput } from '../types/user.type'
+import { User } from '../../graphql'
 
 @Resolver('User')
 export class UserResolver {

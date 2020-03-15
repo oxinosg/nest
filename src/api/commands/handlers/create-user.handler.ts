@@ -3,9 +3,10 @@ import { EventPublisher, ICommandHandler, CommandHandler } from '@nestjs/cqrs'
 import { InjectRepository } from '@nestjs/typeorm'
 
 import { CreateUserCommand } from '../impl/create-user.command'
-import { UserRepository } from '../../repository/user.repository'
-import { UserEntity } from '../../entities/user.entity'
-import { User } from '../../models/user.model'
+import { UserCreatedEvent } from '../../events/impl/user-created.event'
+import { User } from '../../../domain/models/user.model'
+import { UserRepository } from '../../../infrastucture/repository/user.repository'
+import { UserEntity } from '../../../infrastucture/entities/user.entity'
 
 @CommandHandler(CreateUserCommand)
 export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
@@ -27,7 +28,7 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
     const user = this.publisher.mergeObjectContext(
       new User(result.userId, result.firstName, result.lastName, false),
     )
-    user.userCreated()
+    user.publish(new UserCreatedEvent(userDto))
     user.commit()
     return user
   }

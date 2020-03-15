@@ -4,13 +4,13 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { join } from 'path'
 
-import { CommandHandlers } from './commands/handlers'
-import { QueryHandlers } from './queries/handlers'
-import { EventHandlers } from './events/handlers'
-import { UsersSagas } from './sagas/users.sagas'
-import { UserRepository } from './repository/user.repository'
-import { UserResolver } from './resolvers/user.resolver'
-import { UserEntity } from './entities/user.entity'
+import { CommandHandlers } from './api/commands/handlers'
+import { QueryHandlers } from './api/queries/handlers'
+import { EventHandlers } from './api/events/handlers'
+import { UsersSagas } from './api/sagas/users.sagas'
+import { UserResolver } from './api/resolvers/user.resolver'
+import { UserRepository } from './infrastucture/repository/user.repository'
+import { UserEntity } from './infrastucture/entities/user.entity'
 
 @Module({
   imports: [
